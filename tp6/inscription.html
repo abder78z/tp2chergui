@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inscription</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>Formulaire d'Inscription</h1>
+    <table>
+    <form>
+        <tr>
+            <td><label for="nom">Nom d'utilisateur</label></td>
+            <td><input type="text" id="nom" name="nom"></td>
+        </tr>
+        <tr>
+            <td><label for="password">Mot de passe</label></td>
+            <td><input type="password" id="password" name="password"></td>
+        </tr>
+        <tr>
+            <td><label for="passwordconfirmation">Confirmation mot de passe</label></td>
+            <td><input type="password" id="password" name="passwordconfirmation"></td>
+        </tr>
+        <tr>
+            <td><label for="email">adresse mail</label></td>
+            <td><input type="email" id="email" name="email"></td>
+        </tr>
+        <tr>
+            <td><label for="genre">genre</label></td>
+            <td>
+                <label for="Homme">Homme</label>
+                <input type="radio" name="gender" id="Homme" value="Homme">
+                <label for="Femme">Femme</label>
+                <input type="radio" name="gender" id="Femme" value="Femme">
+                <label for="Autre">Autre</label>
+                <input type="radio" name="gender"  id="Autre" value="Autre">
+            </td>
+   <tr><td colspan="2">
+        <label>
+                <input type="checkbox" id="terms" required checked>
+                <span>J’accepte les conditions générales</span>
+              </label>
+   </td>
+</tr>
+</table>
+<input type="submit" id="S'inscire" name="S'inscire"/>
+
+</form>
+
+
+
+</body>
+</html>
