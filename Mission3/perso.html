@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- Définition du jeu de caractères -->
+    <meta charset="UTF-8">
+
+    <!-- Responsive : adapte la mise en page selon la taille de l'écran -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Titre de la page -->
+    <title>Ma Page Perso</title>
+
+    <!-- Lien vers la feuille de style CSS externe -->
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+
+    <!-- En-tête avec titre principal et menu de navigation -->
+    <header>
+        <h1>Bienvenue sur ma page !</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#hobbies">Mes loisirs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Section "À propos" avec un petit texte et une image -->
+    <section id="about">
+        <h2>À propos de moi</h2>
+        <p>Technicien Supérieur en Informatique, passionné par le développement web et les nouvelles technologies.</p>
+        <img src="img/image2.jpg" alt="Photo de profil" class="profile-img">
+    </section>
+
+    <!-- Section "Mes loisirs" avec une liste simple -->
+    <section id="hobbies">
+        <h2>Mes loisirs</h2>
+        <ul>
+            <li>Lire des livres</li>
+            <li>Jouer au football</li>
+            <li>Coder des petits projets</li>
+        </ul>
+    </section>
+
+    <!-- Section Contact avec infos et formulaire simple -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Email : abder.hzt@gmail.com</a></p>
+        <!-- Formulaire de contact simple -->
+        <form action="#" method="post">
+            <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" placeholder="Votre nom" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" placeholder="Votre email" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" rows="5" placeholder="Votre message..." required></textarea>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; 2025 Ma Page Perso</p>
+    </footer>
+
+</body>
+</html>
