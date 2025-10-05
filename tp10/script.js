@@ -49,15 +49,3 @@ function perm()
     document.getElementById("t2").value = e
 }
 
-function reset()
-{
-    document.getElementById('reset').onclick = function() {
-        var inputs = document.getElementsByTagName('input');
-        for (var i = 0; i < inputs.length; i++) {
-          var type = inputs[i].type;
-          if (type === 'text' || type === 'number') {
-            inputs[i].value = '';
-          }
-        }
-      }
-}
