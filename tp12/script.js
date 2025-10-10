@@ -19,6 +19,7 @@ function moyenne() {
     else {
         document.write("Vous êtes admis - Très bien");
     }
+    document.write('<a href="index.html">Retour au menu</a>')
 }
 
 function temperature() {
@@ -34,6 +35,7 @@ function temperature() {
     else {
         document.write("Il fais chaud")
     }
+    document.write('<a href="index.html">Retour au menu</a>')
 }
 
 function comparaison() {
@@ -49,5 +51,6 @@ function comparaison() {
     else {
         document.write("Les deux chiffres sont égaux")
     }
-
+    document.write('<a href="index.html">Retour au menu</a>')
 }
+
