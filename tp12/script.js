@@ -41,12 +41,13 @@ function comparaison() {
     var n5 = prompt("Saisissez un deuxième nombre")
 
     if (n4 < n5) {
-        document.write("Le deuxième chiffre (" + n5 + ") est le plus grand")
+        document.write("Le deuxième chiffre (" + n5 + ") est le plus grand et le plus petit est" + n4)
     }
     else if (n4 > n5) {
-        document.write("Le premier chiffre (" + n4 + ") est le plus grand")
+        document.write("Le premier chiffre (" + n4 + ") est le plus grand et le plus petit est" + n5)
     }
     else {
         document.write("Les deux chiffres sont égaux")
     }
+
 }
