@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#EBF2FA ;
+    align-content: center;
+    margin: 20px;
+}
+
+h1 {
+    align-content: center;
+    justify-content: center;
+    color: #427AA1;
+    text-align: center;
+}
+
+p {
+    font-size: larger;
+}
