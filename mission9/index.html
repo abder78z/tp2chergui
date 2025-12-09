@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quizz sur le football</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <h1>Quiz Football</h1>
+
+    <form id="quizForm">
+  
+      <div>
+        <p>1. Qui a gagné le plus de ballon d'or ?</p>
+        <input type="radio" name="q1" value="Messi"> Messi<br>
+        <input type="radio" name="q1" value="Cristiano Ronaldo"> Cristiano Ronaldo<br>
+        <input type="radio" name="q1" value="Neymar"> Neymar<br>
+        <input type="radio" name="q1" value="Cruyf"> Cruyf<br>
+      </div>
+  
+      <div>
+        <p>2. Qui est le joueur le plus titré de l'histoire du foot ?</p>
+        <input type="radio" name="q2" value="Messi"> Messi<br>
+        <input type="radio" name="q2" value="Dani Alves"> Dani Alves<br>
+        <input type="radio" name="q2" value="Slimani"> Slimani<br>
+        <input type="radio" name="q2" value="Ronaldinho"> Ronaldinho<br>
+      </div>
+  
+      <div>
+        <p>3. Quel est la seule équipe à avoir gagner 3 Ligue des Champions d'affilée ?</p>
+        <input type="radio" name="q3" value="Paris Saint Germain"> Paris Saint Germain<br>
+        <input type="radio" name="q3" value="Real Madrid"> Real Madrid<br>
+        <input type="radio" name="q3" value="FC Barcelone"> FC Barcelone<br>
+        <input type="radio" name="q3" value="Liverpool"> Liverpool<br>
+      </div>
+  
+      <div>
+        <p>4. Quel est l'équipe à avoir bénéficié du plus d'erreurs d'arbitrage en LDC ?</p>
+        <input type="radio" name="q4" value="Paris Saint Germain"> Paris Saint Germain<br>
+        <input type="radio" name="q4" value="Real Madrid"> Real Madrid<br>
+        <input type="radio" name="q4" value="FC Barcelone"> FC Barcelone<br>
+        <input type="radio" name="q4" value="Liverpool"> Liverpool<br>
+      </div>
+  
+      <div>
+        <p>5. Peut-on donc parler de vol de la part de cette équipe ?</p>
+        <input type="radio" name="q5" value="oui"> oui<br>
+        <input type="radio" name="q5" value="non"> non<br>
+      </div>
+  
+      <div>
+        <p>6. Quelle est la seule équipe qui a gagné sans essuyer une seule défaite en championnat ?</p>
+        <input type="radio" name="q6" value="Arsenal"> Arsenal<br>
+        <input type="radio" name="q6" value="Paris Saint Germain"> Paris Saint Germain<br>
+        <input type="radio" name="q6" value="Slimani"> Slimani<br>
+        <input type="radio" name="q6" value="FC Barcelone"> FC Barcelone<br>
+      </div>
+  
+      <div>
+        <p>7. Qui est l'équipe qui fait toujours la pleureuse sur les réseaux ?</p>
+        <input type="radio" name="q7" value="Paris Saint Germain"> Paris Saint Germain<br>
+        <input type="radio" name="q7" value="Real Madrid"> Real Madrid<br>
+        <input type="radio" name="q7" value="FC Barcelone"> FC Barcelone<br>
+        <input type="radio" name="q7" value="Liverpool"> Liverpool<br>
+      </div>
+  
+      <div>
+        <p>8. Qui est le plus grand talent gâché du football ?</p>
+        <input type="radio" name="q8" value="Neymar"> Neymar<br>
+        <input type="radio" name="q8" value="Ben Arfa"> Ben Arfa<br>
+        <input type="radio" name="q8" value="Slimani"> Slimani<br>
+        <input type="radio" name="q8" value="Krkic"> Krkic<br>
+      </div>
+  
+      <div>
+        <p>9. Qui est le joueur qui a marqué le plus de buts sur une année civile ?</p>
+        <input type="radio" name="q9" value="Messi"> Messi<br>
+        <input type="radio" name="q9" value="Dani Alves"> Dani Alves<br>
+        <input type="radio" name="q9" value="Slimani"> Slimani<br>
+        <input type="radio" name="q9" value="Ronaldinho"> Ronaldinho<br>
+      </div>
+  
+      <div>
+        <p>10. Qui est le meilleur dribbleur de tous les temps ?</p>
+        <input type="radio" name="q10" value="Messi"> Messi<br>
+        <input type="radio" name="q10" value="Maradona"> Maradona<br>
+        <input type="radio" name="q10" value="Neymar"> Neymar<br>
+        <input type="radio" name="q10" value="Ronaldinho"> Ronaldinho<br>
+      </div>
+  
+    </form>
+  
+    <br>
+  
+    <button onclick="corriger()">Correction</button>
+    <button onclick="ouvrirCorrige()">Corrigé</button>
+    <button onclick="effacer()">Effacer</button>
+  
+    <p id="resultat"></p>
+</body>
+</html>
