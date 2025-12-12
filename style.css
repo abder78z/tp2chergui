@@ -1,15 +1,23 @@
 :root {
-    --couleur-primaire: #30B49B;
+    --couleur-primaire: #673AB7; 
     --couleur-texte-sombre: #333333;
-    --couleur-texte-clair: #555555;
-    --couleur-fond: #F4F6F9;
+    --couleur-texte-clair: #666666;
     --couleur-fond-carte: #FFFFFF;
-    --couleur-bordure: #E0E0E0;
-    --police-principale: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    --espacement: 1rem;
-    --rayon-bordure: 8px;
-    --ombre-legere: 0 4px 8px rgba(0, 0, 0, 0.05);
-    --ombre-active: 0 8px 16px rgba(0, 0, 0, 0.1);
+    --couleur-bordure: #E8EAF6; 
+
+    /* Couleurs pour les Vagues Animées (très claires) */
+    --vague-blanc: #F9FAFB;
+    --vague-bleu-ciel: #E3F2FD;
+    --vague-rouge-clair: #FCE4EC; 
+
+    /* Typographie */
+    --police-principale: Arial, sans-serif;
+
+    /* Dimensions */
+    --espacement: 1.2rem;
+    --rayon-bordure: 12px;
+    --ombre-legere: 0 6px 15px rgba(0, 0, 0, 0.08);
+    --ombre-active: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 * {
@@ -21,36 +29,79 @@
 body {
     font-family: var(--police-principale);
     line-height: 1.6;
-    background-color: var(--couleur-fond);
     color: var(--couleur-texte-clair);
     padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--vague-blanc);
+}
+
+/* Modification : Utilisation de body::before pour l'effet de vague floue */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50vh; /* Commence plus haut pour un mouvement plus complet */
+    left: -50vw; /* Commence plus à gauche */
+    width: 200%; /* Plus grand pour l'effet de vague */
+    height: 200%;
+    
+    /* Dégradé de couleurs */
+    background: linear-gradient(
+        135deg,
+        var(--vague-bleu-ciel) 0%,
+        var(--vague-blanc) 25%,
+        var(--vague-rouge-clair) 50%,
+        var(--vague-bleu-ciel) 75%,
+        var(--vague-blanc) 100%
+    );
+    
+    background-size: 200% 200%; /* Taille plus grande pour le mouvement */
+    filter: blur(80px); /* Flou important pour un rendu organique et non rigide */
+    animation: backgroundWave 30s ease infinite alternate; /* Mouvement plus lent et "alterné" */
+    z-index: -1;
+    opacity: 0.8;
+}
+
+/* L'animation de vague est plus lente et utilise des positions plus complexes */
+@keyframes backgroundWave {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 header {
     background-color: var(--couleur-primaire);
     color: var(--couleur-fond-carte);
-    padding: 3rem var(--espacement);
+    padding: 3.5rem var(--espacement);
     text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--ombre-legere);
+    position: relative;
+    z-index: 1;
 }
 
 header h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 300;
     margin: 0;
 }
 
 .container {
-    max-width: 900px;
-    margin: 3rem auto;
+    max-width: 960px;
+    margin: 4rem auto;
     padding: 0 var(--espacement);
+    position: relative;
+    z-index: 1;
 }
 
 .tp-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
     padding: 0;
 }
 
@@ -60,19 +111,20 @@ header h1 {
     box-shadow: var(--ombre-legere);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--couleur-bordure);
 }
 
 .tp-list li:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--ombre-active);
 }
 
 .tp-list li a {
     display: block;
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem;
     text-decoration: none;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--couleur-texte-sombre);
     transition: color 0.3s ease, background-color 0.3s ease;
@@ -80,23 +132,40 @@ header h1 {
 
 .tp-list li:hover a {
     color: var(--couleur-primaire);
-    background-color: #f7f7f7;
+    background-color: #F8F9FA;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     header {
-        padding: 2rem var(--espacement);
+        padding: 2.5rem var(--espacement);
     }
 
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        margin: 3rem auto;
+    }
+
+    .tp-list {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+
+    .tp-list li a {
+        font-size: 1.1rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
     header h1 {
         font-size: 1.8rem;
     }
 
-    .container {
-        margin: 2rem auto;
-    }
-
     .tp-list {
         grid-template-columns: 1fr;
+        gap: 15px;
     }
 }
