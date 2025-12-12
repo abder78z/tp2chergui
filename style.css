@@ -1,0 +1,100 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Facilite la gestion des marges et paddings */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7f6; 
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+
+header {
+    background-color: #3f51b5; 
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    margin-bottom: 40px;
+    border-radius: 8px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 2.5em;
+    letter-spacing: 1px;
+}
+
+
+
+.container {
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+.tp-list {
+    list-style: none; 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
+
+.tp-list li {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation de survol */
+}
+
+/* Animation au survol */
+.tp-list li:hover {
+    transform: translateY(-5px); /* Légère élévation */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* --- 4. Style des Liens (Boutons/Cartes) --- */
+
+.tp-list li a {
+    display: block; /* Le lien prend toute la place du <li> */
+    text-decoration: none; /* Supprimer le soulignement */
+    padding: 20px;
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #3f51b5; /* Couleur de texte coordonnée à l'en-tête */
+    border: 2px solid transparent; /* Bordure transparente */
+    border-radius: 8px;
+    text-align: center;
+    height: 100%; /* Important pour que l'a prenne toute la hauteur du li */
+}
+
+.tp-list li a:hover {
+    background-color: #e8eaf6; /* Fond très léger au survol */
+    color: #303f9f; /* Couleur de texte légèrement plus foncée */
+}
+
+/* Style spécifique pour les missions (on pourrait les distinguer visuellement) */
+.tp-list li:nth-child(n+20) a { /* Les liens à partir du 20e (les missions) */
+    color: #e91e63; /* Rouge-rose pour les missions */
+    border: 2px solid #e91e6340;
+}
+
+.tp-list li:nth-child(n+20) a:hover {
+    background-color: #fce4ec; /* Fond rose très clair au survol des missions */
+}
+
+/* --- 5. Responsive Design pour petits écrans --- */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 2em; /* Taille de police plus petite sur mobile */
+    }
+
+    /* Sur les très petits écrans, on passe à une seule colonne */
+    .tp-list {
+        grid-template-columns: 1fr;
+    }
+}
