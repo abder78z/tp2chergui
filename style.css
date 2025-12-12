@@ -1,25 +1,3 @@
-:root {
-    --couleur-primaire: #673AB7; 
-    --couleur-texte-sombre: #333333;
-    --couleur-texte-clair: #666666;
-    --couleur-fond-carte: #FFFFFF;
-    --couleur-bordure: #E8EAF6; 
-
-    /* Couleurs pour les Vagues Animées (très claires) */
-    --vague-blanc: #F9FAFB;
-    --vague-bleu-ciel: #E3F2FD;
-    --vague-rouge-clair: #FCE4EC; 
-
-    /* Typographie */
-    --police-principale: Arial, sans-serif;
-
-    /* Dimensions */
-    --espacement: 1.2rem;
-    --rayon-bordure: 12px;
-    --ombre-legere: 0 6px 15px rgba(0, 0, 0, 0.08);
-    --ombre-active: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -27,145 +5,86 @@
 }
 
 body {
-    font-family: var(--police-principale);
+    /* La police simple et épurée demandée */
+    font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: var(--couleur-texte-clair);
+    background-color: #F5F5F5; /* Fond très léger (Gris très très clair) */
+    color: #607D8B; /* Texte gris-bleu discret */
     padding: 0;
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-    background-color: var(--vague-blanc);
 }
 
-/* --- NOUVEAU CODE POUR LES VAGUES FLUIDES --- */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 300%; /* Plus grand pour un mouvement plus lent et complet */
-    height: 300%;
-    
-    /* Dégradé de couleurs */
-    background: linear-gradient(
-        135deg,
-        var(--vague-bleu-ciel) 0%,
-        var(--vague-blanc) 25%,
-        var(--vague-rouge-clair) 50%,
-        var(--vague-bleu-ciel) 75%,
-        var(--vague-blanc) 100%
-    );
-    
-    background-size: cover; /* Pas nécessaire mais bonne pratique */
-    filter: blur(100px); /* Augmentation du flou pour plus de fluidité */
-    animation: moveWave 45s ease infinite alternate; /* Nouvelle animation plus lente */
-    z-index: -1;
-    opacity: 0.7;
-    /* L'opacité est légèrement réduite pour plus de subtilité */
-}
+/* --- 2. Style de l'En-tête --- */
 
-/* NOUVELLE KEYFRAMES utilisant transform: translate pour un meilleur support */
-@keyframes moveWave {
-    0% {
-        transform: translate(-15% -15%); /* Déplacement initial */
-    }
-    100% {
-        transform: translate(15% 15%); /* Déplacement final */
-    }
-}
 header {
-    background-color: var(--couleur-primaire);
-    color: var(--couleur-fond-carte);
-    padding: 3.5rem var(--espacement);
+    background-color: #00BCD4; /* Couleur Cyan/Turquoise (Frais) */
+    color: #FFFFFF; /* Texte blanc */
+    padding: 2.5rem 1rem;
     text-align: center;
-    box-shadow: var(--ombre-legere);
-    position: relative;
-    z-index: 1;
+    /* Ombre subtile pour donner de la profondeur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 header h1 {
-    font-size: 2.5rem;
-    font-weight: 300;
+    font-size: 2rem;
+    font-weight: normal; /* Normal pour un look épuré */
     margin: 0;
 }
 
+/* --- 3. Conteneur et Liste des Travaux --- */
+
 .container {
-    max-width: 960px;
-    margin: 4rem auto;
-    padding: 0 var(--espacement);
-    position: relative;
-    z-index: 1;
+    max-width: 800px;
+    margin: 2.5rem auto; /* Centre le conteneur horizontalement */
+    padding: 0 1rem;
 }
 
+/* Retire les puces de la liste */
 .tp-list {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
+    /* Crée une grille de colonnes (3 au maximum) */
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px; /* Espace entre les "cartes" */
     padding: 0;
 }
 
+/* Chaque élément de liste devient une "carte" */
 .tp-list li {
-    background-color: var(--couleur-fond-carte);
-    border-radius: var(--rayon-bordure);
-    box-shadow: var(--ombre-legere);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid var(--couleur-bordure);
+    background-color: #FFFFFF; /* Fond de carte blanc */
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease; /* Transition pour un effet doux */
 }
 
+/* Effet au survol de la carte */
 .tp-list li:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--ombre-active);
+    transform: translateY(-2px); /* Léger soulèvement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
+
+/* --- 4. Style des Liens (Ancres) --- */
 
 .tp-list li a {
-    display: block;
+    display: block; /* Permet au lien de prendre toute la place de la carte */
     text-align: center;
-    padding: 2rem;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--couleur-texte-sombre);
-    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 1.25rem;
+    text-decoration: none; /* Retire le soulignement */
+    font-size: 1rem;
+    font-weight: bold;
+    color: #37474F; /* Couleur de texte sombre */
+    transition: color 0.2s ease;
 }
 
+/* Changement de couleur du texte au survol */
 .tp-list li:hover a {
-    color: var(--couleur-primaire);
-    background-color: #F8F9FA;
+    color: #00BCD4; /* Devient Cyan/Turquoise */
 }
 
-@media (max-width: 768px) {
-    header {
-        padding: 2.5rem var(--espacement);
-    }
+/* --- 5. Responsive (pour les petits écrans) --- */
 
-    header h1 {
-        font-size: 2rem;
-    }
-
-    .container {
-        margin: 3rem auto;
-    }
-
-    .tp-list {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 20px;
-    }
-
-    .tp-list li a {
-        font-size: 1.1rem;
-        padding: 1.5rem;
-    }
-}
-
-@media (max-width: 480px) {
-    header h1 {
-        font-size: 1.8rem;
-    }
-
+@media (max-width: 600px) {
+    /* Sur les petits écrans, on passe à une seule colonne */
     .tp-list {
         grid-template-columns: 1fr;
-        gap: 15px;
     }
 }
