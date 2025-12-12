@@ -37,14 +37,14 @@ body {
     background-color: var(--vague-blanc);
 }
 
-/* Modification : Utilisation de body::before pour l'effet de vague floue */
+/* --- NOUVEAU CODE POUR LES VAGUES FLUIDES --- */
 body::before {
     content: '';
     position: fixed;
-    top: -50vh; /* Commence plus haut pour un mouvement plus complet */
-    left: -50vw; /* Commence plus à gauche */
-    width: 200%; /* Plus grand pour l'effet de vague */
-    height: 200%;
+    top: 0;
+    left: 0;
+    width: 300%; /* Plus grand pour un mouvement plus lent et complet */
+    height: 300%;
     
     /* Dégradé de couleurs */
     background: linear-gradient(
@@ -56,23 +56,23 @@ body::before {
         var(--vague-blanc) 100%
     );
     
-    background-size: 200% 200%; /* Taille plus grande pour le mouvement */
-    filter: blur(80px); /* Flou important pour un rendu organique et non rigide */
-    animation: backgroundWave 30s ease infinite alternate; /* Mouvement plus lent et "alterné" */
+    background-size: cover; /* Pas nécessaire mais bonne pratique */
+    filter: blur(100px); /* Augmentation du flou pour plus de fluidité */
+    animation: moveWave 45s ease infinite alternate; /* Nouvelle animation plus lente */
     z-index: -1;
-    opacity: 0.8;
+    opacity: 0.7;
+    /* L'opacité est légèrement réduite pour plus de subtilité */
 }
 
-/* L'animation de vague est plus lente et utilise des positions plus complexes */
-@keyframes backgroundWave {
+/* NOUVELLE KEYFRAMES utilisant transform: translate pour un meilleur support */
+@keyframes moveWave {
     0% {
-        background-position: 0% 0%;
+        transform: translate(-15% -15%); /* Déplacement initial */
     }
     100% {
-        background-position: 100% 100%;
+        transform: translate(15% 15%); /* Déplacement final */
     }
 }
-
 header {
     background-color: var(--couleur-primaire);
     color: var(--couleur-fond-carte);
