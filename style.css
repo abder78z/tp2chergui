@@ -1,5 +1,3 @@
-/* --- 1. Réinitialisation et Base du Document --- */
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,66 +5,52 @@
 }
 
 body {
-    /* Police et couleurs de base épurées */
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #F9FAFB; /* Blanc très léger (couleur de base des vagues) */
+    background-color: #F9FAFB;
     color: #607D8B;
-    padding: 0;
-    overflow-x: hidden; /* Empêche le défilement horizontal */
+    overflow-x: hidden;
     position: relative;
     min-height: 100vh;
 }
-
-/* --- 2. L'Élément d'Animation de Vague (body::before) --- */
 
 body::before {
     content: '';
     position: fixed;
     top: 0;
     left: 0;
-    width: 300%; /* Taille plus grande pour le mouvement des vagues */
+    width: 300%;
     height: 300%;
-    
-    /* Dégradé de couleurs douces : Blanc (#F9FAFB), Bleu très clair (#E3F2FD), Rouge très clair (#FCE4EC) */
     background: linear-gradient(
         135deg,
-        #E3F2FD 0%, /* Bleu Ciel */
-        #F9FAFB 25%, /* Blanc */
-        #FCE4EC 50%, /* Rose Pâle */
+        #E3F2FD 0%,
+        #F9FAFB 25%,
+        #FCE4EC 50%,
         #E3F2FD 75%,
         #F9FAFB 100%
     );
-    
     background-size: cover;
-    filter: blur(100px); /* Flou important pour l'effet de vague fluide et organique */
-    
-    /* Animation lente et alternée pour le flux */
+    filter: blur(100px);
     animation: moveWave 45s ease infinite alternate;
-    z-index: -1; /* Place l'animation derrière le contenu */
+    z-index: -1;
     opacity: 0.7;
 }
 
-/* Les étapes de l'animation : Déplace l'élément d'arrière-plan */
 @keyframes moveWave {
     0% {
-        transform: translate(-15% -15%); /* Position de départ décalée */
+        transform: translate(-15%, -15%);
     }
     100% {
-        transform: translate(15% 15%); /* Position d'arrivée décalée */
+        transform: translate(15%, 15%);
     }
 }
 
-/* --- 3. Style de l'En-tête --- */
-
 header {
-    background-color: #00BCD4; /* Couleur Primaire Cyan */
-    color: #FFFFFF;
     padding: 2.5rem 1rem;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative; /* Assure que le header est au-dessus de l'animation */
+    position: relative;
     z-index: 1;
+    color: #37474F;
 }
 
 header h1 {
@@ -74,8 +58,6 @@ header h1 {
     font-weight: normal;
     margin: 0;
 }
-
-/* --- 4. Conteneur et Liste des Travaux (Cartes) --- */
 
 .container {
     max-width: 800px;
@@ -90,7 +72,6 @@ header h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 15px;
-    padding: 0;
 }
 
 .tp-list li {
@@ -104,8 +85,6 @@ header h1 {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-
-/* --- 5. Style des Liens --- */
 
 .tp-list li a {
     display: block;
@@ -121,8 +100,6 @@ header h1 {
 .tp-list li:hover a {
     color: #00BCD4;
 }
-
-/* --- 6. Responsive minimal --- */
 
 @media (max-width: 600px) {
     .tp-list {
