@@ -1,3 +1,5 @@
+/* --- 1. Réinitialisation et Base du Document --- */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,85 +7,124 @@
 }
 
 body {
-    /* La police simple et épurée demandée */
+    /* Police et couleurs de base épurées */
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    background-color: #F5F5F5; /* Fond très léger (Gris très très clair) */
-    color: #607D8B; /* Texte gris-bleu discret */
+    background-color: #F9FAFB; /* Blanc très léger (couleur de base des vagues) */
+    color: #607D8B;
     padding: 0;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+    position: relative;
+    min-height: 100vh;
 }
 
-/* --- 2. Style de l'En-tête --- */
+/* --- 2. L'Élément d'Animation de Vague (body::before) --- */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300%; /* Taille plus grande pour le mouvement des vagues */
+    height: 300%;
+    
+    /* Dégradé de couleurs douces : Blanc (#F9FAFB), Bleu très clair (#E3F2FD), Rouge très clair (#FCE4EC) */
+    background: linear-gradient(
+        135deg,
+        #E3F2FD 0%, /* Bleu Ciel */
+        #F9FAFB 25%, /* Blanc */
+        #FCE4EC 50%, /* Rose Pâle */
+        #E3F2FD 75%,
+        #F9FAFB 100%
+    );
+    
+    background-size: cover;
+    filter: blur(100px); /* Flou important pour l'effet de vague fluide et organique */
+    
+    /* Animation lente et alternée pour le flux */
+    animation: moveWave 45s ease infinite alternate;
+    z-index: -1; /* Place l'animation derrière le contenu */
+    opacity: 0.7;
+}
+
+/* Les étapes de l'animation : Déplace l'élément d'arrière-plan */
+@keyframes moveWave {
+    0% {
+        transform: translate(-15% -15%); /* Position de départ décalée */
+    }
+    100% {
+        transform: translate(15% 15%); /* Position d'arrivée décalée */
+    }
+}
+
+/* --- 3. Style de l'En-tête --- */
 
 header {
-    background-color: #00BCD4; /* Couleur Cyan/Turquoise (Frais) */
-    color: #FFFFFF; /* Texte blanc */
+    background-color: #00BCD4; /* Couleur Primaire Cyan */
+    color: #FFFFFF;
     padding: 2.5rem 1rem;
     text-align: center;
-    /* Ombre subtile pour donner de la profondeur */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative; /* Assure que le header est au-dessus de l'animation */
+    z-index: 1;
 }
 
 header h1 {
     font-size: 2rem;
-    font-weight: normal; /* Normal pour un look épuré */
+    font-weight: normal;
     margin: 0;
 }
 
-/* --- 3. Conteneur et Liste des Travaux --- */
+/* --- 4. Conteneur et Liste des Travaux (Cartes) --- */
 
 .container {
     max-width: 800px;
-    margin: 2.5rem auto; /* Centre le conteneur horizontalement */
+    margin: 2.5rem auto;
     padding: 0 1rem;
+    position: relative;
+    z-index: 1;
 }
 
-/* Retire les puces de la liste */
 .tp-list {
     list-style: none;
     display: grid;
-    /* Crée une grille de colonnes (3 au maximum) */
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px; /* Espace entre les "cartes" */
+    gap: 15px;
     padding: 0;
 }
 
-/* Chaque élément de liste devient une "carte" */
 .tp-list li {
-    background-color: #FFFFFF; /* Fond de carte blanc */
+    background-color: #FFFFFF;
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease; /* Transition pour un effet doux */
+    transition: transform 0.2s ease;
 }
 
-/* Effet au survol de la carte */
 .tp-list li:hover {
-    transform: translateY(-2px); /* Léger soulèvement */
+    transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* --- 4. Style des Liens (Ancres) --- */
+/* --- 5. Style des Liens --- */
 
 .tp-list li a {
-    display: block; /* Permet au lien de prendre toute la place de la carte */
+    display: block;
     text-align: center;
     padding: 1.25rem;
-    text-decoration: none; /* Retire le soulignement */
+    text-decoration: none;
     font-size: 1rem;
     font-weight: bold;
-    color: #37474F; /* Couleur de texte sombre */
+    color: #37474F;
     transition: color 0.2s ease;
 }
 
-/* Changement de couleur du texte au survol */
 .tp-list li:hover a {
-    color: #00BCD4; /* Devient Cyan/Turquoise */
+    color: #00BCD4;
 }
 
-/* --- 5. Responsive (pour les petits écrans) --- */
+/* --- 6. Responsive minimal --- */
 
 @media (max-width: 600px) {
-    /* Sur les petits écrans, on passe à une seule colonne */
     .tp-list {
         grid-template-columns: 1fr;
     }
