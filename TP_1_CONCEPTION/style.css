@@ -1,0 +1,62 @@
+/* Reset simple */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fond général cosy nude */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f5ebe6, #e8d8cf);
+    color: #5a4a42;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Carte centrale douce */
+body::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 260px;
+    background: #fffaf7;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(90, 74, 66, 0.15);
+    z-index: -1;
+}
+
+/* Titre */
+h1 {
+    margin-bottom: 30px;
+    color: #7a5c52;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* Paragraphes */
+p {
+    margin: 12px 0;
+}
+
+/* Boutons liens nude */
+a {
+    text-decoration: none;
+    color: #fff;
+    background: #c8a58b;
+    padding: 12px 24px;
+    border-radius: 12px;
+    transition: all 0.25s ease;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Hover doux */
+a:hover {
+    background: #b08d73;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(90, 74, 66, 0.18);
+}
